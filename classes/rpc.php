@@ -548,7 +548,7 @@ class RPC extends Handler_Protected {
 	// Silent
 	function massSubscribe() {
 
-		$payload = json_decode($_REQUEST["payload"], false);
+		$payload = json_decode(stripslashes(trim($_REQUEST["payload"],'"')), true);
 		$mode = $_REQUEST["mode"];
 
 		if (!$payload || !is_array($payload)) return;
@@ -726,7 +726,7 @@ class RPC extends Handler_Protected {
 
 	function batchAddFeeds() {
 		$cat_id = db_escape_string($_REQUEST['cat']);
-		$feeds = explode("\n", db_escape_string($_REQUEST['feeds']));
+		$feeds = explode("\\n", db_escape_string($_REQUEST['feeds']));
 		$login = db_escape_string($_REQUEST['login']);
 		$pass = db_escape_string($_REQUEST['pass']);
 		$need_auth = db_escape_string($_REQUEST['need_auth']) != "";

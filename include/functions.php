@@ -962,6 +962,7 @@
 
 		if (!$owner_uid) $owner_uid = $_SESSION['uid'];
 		if (!$timestamp) $timestamp = '1970-01-01 0:00';
+		if ($timestamp == '0000-00-00 00:00:00') return '';
 
 		global $utc_tz;
 		global $tz_offset;
