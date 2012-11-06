@@ -2226,7 +2226,7 @@
 				$filter_query_part = filter_to_sql($link, $filter, $owner_uid);
 
 				// Try to check if SQL regexp implementation chokes on a valid regexp
-				$result = db_query($link, "SELECT true AS true FROM ttrss_entries,
+				$result = db_query($link, "SELECT true AS 'true' FROM ttrss_entries,
 					ttrss_user_entries, ttrss_feeds, ttrss_feed_categories
 					WHERE $filter_query_part LIMIT 1", false);
 
