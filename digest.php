@@ -67,21 +67,21 @@
 	</div>
 
 	<div id="header">
+	<a style="float : left" href="#" onclick="close_article()">
+		<?php echo __("Back to feeds") ?></a>
 
 	<div class="links">
-	<?php if (!SINGLE_USER_MODE) { ?>
+
+	<?php if (!$_SESSION["hide_hello"]) { ?>
 			<?php echo __('Hello,') ?> <b><?php echo $_SESSION["name"] ?></b> |
 	<?php } ?>
-	<?php if (!SINGLE_USER_MODE) { ?>
+	<?php if (!$_SESSION["hide_logout"]) { ?>
 			<a href="backend.php?op=logout"><?php echo __('Logout') ?></a> |
 	<?php } ?>
 			<a href='<?php echo get_self_url_prefix() ?>/index.php?mobile=false'>
 			<?php echo __("Regular version") ?></a>
 
 	</div>
-
-	<span class="title">Tiny Tiny RSS</span>
-
 	</div>
 
 	<div id="article"><div id="article-content">&nbsp;</div></div>
